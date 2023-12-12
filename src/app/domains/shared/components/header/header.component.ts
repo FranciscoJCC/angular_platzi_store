@@ -1,7 +1,6 @@
 import { Component, Input, SimpleChanges, inject, signal } from '@angular/core';
-import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '@shared/services/cart.service';
 
 @Component({
   selector: 'app-header',
