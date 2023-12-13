@@ -1,4 +1,5 @@
-<div class="px-10">
+<div class="container mx-auto">
+    <app-header/>
     <h1 class="text-lg font-bold">About</h1>
     <p class="text-xs">Lorem ipsum dolor sit, amet <span highlight>consectetur adipisicing elit. Dolor ea quae at </span> numquam provident eveniet similique libero modi accusantium et autem, perferendis, corporis facere nobis dicta, aperiam distinctio maiores placeat.</p>
     <p>Número de clientes: <app-counter [duration]="duration()" [message]="message()" *ngIf="duration() > 0"/></p>
@@ -6,4 +7,8 @@
     <div>
         <app-wave-audio audioUrl="assets/audio.mp3"/>
     </div>
+  </div>
+  
+<div class="px-10">
+    
 </div>
