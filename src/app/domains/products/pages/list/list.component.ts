@@ -16,7 +16,7 @@ import { Category } from '@shared/models/category.model';
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
-export class ListComponent {
+export default class ListComponent {
   //img = "https://picsum.photos/640/640?r=" + Math.random();
 
   //Lista de productos 
