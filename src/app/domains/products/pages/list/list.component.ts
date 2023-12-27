@@ -24,6 +24,8 @@ export default class ListComponent {
   products = signal<Product[]>([]);
   //Lista de categorias
   categories = signal<Category[]>([]);
+  //productLimit para paginación
+  productLimit = signal(12);
 
   private cartService = inject(CartService);
   private productService  = inject(ProductService);
@@ -50,7 +52,7 @@ export default class ListComponent {
   }
 
   private getProducts(){
-    this.productService.getProducts(this.category_id)
+    this.productService.getProducts(this.category_id, this.productLimit())
     .subscribe({
       next: (products) => {
         this.products.set(products);
