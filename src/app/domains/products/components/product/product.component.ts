@@ -4,6 +4,7 @@ import { RouterLinkWithHref } from '@angular/router';
 import { Product } from '@shared/models/product.model';
 import { ReversePipe } from '@shared/pipes/reverse.pipe';
 import { TimeAgoPipe } from '@shared/pipes/time-ago.pipe';
+
 //import EventEmitter from 'events';
 
 @Component({

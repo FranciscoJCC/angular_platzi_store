@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../../../shared/services/product.service';
 import { Product } from '@shared/models/product.model';
 import { CartService } from '../../../shared/services/cart.service';
+import { SimilarProductsComponent } from '@products/components/similar-products/similar-products.component';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SimilarProductsComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.css'
 })
@@ -24,7 +25,7 @@ export default class ProductDetailComponent {
   //Servicio de cart
   private CartService = inject(CartService);
   
-  ngOnInit(){
+  ngOnChanges(){
     if(this.id)
       this.ProductService.getOneProduct(this.id)
     .subscribe({

@@ -27,4 +27,13 @@ export class ProductService {
   getOneProduct(id: string){
     return this.http.get<Product>('https://api.escuelajs.co/api/v1/products/' + id);
   }
+
+  //Obtenemos productos similares por categoria
+  getSimilarProducts(categoryId : number){
+    const url = new URL('https://api.escuelajs.co/api/v1/products?offset=0&limit=8')
+
+    url.searchParams.set('categoryId', categoryId.toString());
+    
+    return this.http.get<Product[]>(url.toString());
+  }
 }

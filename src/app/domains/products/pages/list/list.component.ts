@@ -4,15 +4,16 @@ import { RouterLinkWithHref } from '@angular/router';
 import { ProductComponent } from '@products/components/product/product.component';
 import { Product } from '@shared/models/product.model';
 import { HeaderComponent } from '@shared/components/header/header.component';
+import { CartMovilComponent } from '@shared/components/cart-movil/cart-movil.component';
 import { CartService } from '@shared/services/cart.service';
 import { ProductService } from '@shared/services/product.service';
-import { CategoryService } from '../../../shared/services/category.service';
+import { CategoryService } from '@shared/services/category.service';
 import { Category } from '@shared/models/category.model';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ ProductComponent, HeaderComponent, RouterLinkWithHref ],
+  imports: [ ProductComponent, HeaderComponent, RouterLinkWithHref, CartMovilComponent ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
