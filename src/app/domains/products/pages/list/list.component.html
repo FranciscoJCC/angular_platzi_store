@@ -1,12 +1,13 @@
 <div class="flex space-x-4 mt-5">
-  <div class="w-80 hidden md:block">
-    <ul>
-      <li>
-        <a routerLink="/">All</a>
+  <div class="w-60 h-full pb-2 shadow-md hidden md:block border border-cyan-700 rounded-md">
+    <h4 class="mb-5 font-bold bg-cyan-700 text-center text-slate-50 p-1 rounded-t-md">Categorias</h4>
+    <ul class="ml-3">
+      <li class="mb-1 cursor-pointer">
+        <a class="p-1 hover:bg-cyan-600 hover:rounded-md hover:text-slate-50" routerLink="/">All</a>
       </li>
       @for (category of categories(); track $index) {
-      <li>
-        <a routerLink="/" [queryParams]="{ category_id: category.id }">
+      <li class="mb-1 cursor-pointer">
+        <a class="p-1 hover:bg-cyan-600 hover:rounded-md hover:text-slate-50" routerLink="/" [queryParams]="{ category_id: category.id }">
           {{ category.name }}
         </a>
       </li>
