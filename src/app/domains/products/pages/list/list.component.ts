@@ -1,5 +1,6 @@
-import { Component, Input, inject, signal, SimpleChanges } from '@angular/core';
+import { Component, Input, inject, signal, SimpleChanges, SimpleChange } from '@angular/core';
 import { RouterLinkWithHref } from '@angular/router';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 import { ProductComponent } from '@products/components/product/product.component';
 import { Product } from '@shared/models/product.model';
@@ -13,7 +14,7 @@ import { Category } from '@shared/models/category.model';
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ ProductComponent, HeaderComponent, RouterLinkWithHref, CartMovilComponent ],
+  imports: [ ProductComponent, HeaderComponent, RouterLinkWithHref, CartMovilComponent, InfiniteScrollModule ],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css'
 })
@@ -43,7 +44,10 @@ export default class ListComponent {
 
   //Leemos cambios durante el ciclo de vida del componente
   ngOnChanges(changes : SimpleChanges){
-      this.getProducts()
+    if(changes['category_id'] && changes['category_id'] != undefined)
+      this.productLimit.set(12);
+
+    this.getProducts()
   }
   
   addtToCart(product: Product) {
@@ -61,6 +65,16 @@ export default class ListComponent {
 
       }
     })
+  }
+
+  onScroll(){
+    console.log('prod list', this.productLimit())
+    this.productLimit.set(this.productLimit() + 12);
+    this.getProducts();
+  }
+
+  scrolledUp() {
+
   }
 
   private getCategories(){

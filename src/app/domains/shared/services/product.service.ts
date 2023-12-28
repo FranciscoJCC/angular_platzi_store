@@ -16,12 +16,13 @@ export class ProductService {
 
   getProducts(category_id?: string, productLimit?: number){
     const url = new URL('https://api.escuelajs.co/api/v1/products');
+    const offset = 0;
 
     if(category_id)
       url.searchParams.set('categoryId', category_id);
 
     if(productLimit){
-      url.searchParams.set('offset', (productLimit - 12).toString())
+      url.searchParams.set('offset', offset.toString())
       url.searchParams.set('limit', productLimit.toString())
     }
 
