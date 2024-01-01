@@ -9,7 +9,7 @@ import { es } from 'date-fns/locale';
 export class TimeAgoPipe implements PipeTransform {
 
   transform(value: string): string {
-    return formatDistanceToNow( new Date(value), { addSuffix: true, locale: es });
+    return formatDistanceToNow( new Date(value), { addSuffix: true, /* locale: es */ });
   }
 
 }
