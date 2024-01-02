@@ -2,3 +2,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "Roboto";
+    src: url('./fonts/Roboto-Regular.ttf');
+}
+
+body{
+    font-family: "Roboto";
+}
+
+.bg-store-bk{
+    background-color: #0e749063;
+}
